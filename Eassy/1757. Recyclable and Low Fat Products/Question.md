@@ -58,10 +58,3 @@ Thus, the query will return the following result:
 ## Constraints:
 - The `Products` table will have a number of rows between 1 and 1000.
 - The `product_id` will always be unique.
-
-## SQL Solution:
-
-```sql
-SELECT product_id
-FROM Products
-WHERE low_fats = 'Y' AND recyclable = 'Y';
