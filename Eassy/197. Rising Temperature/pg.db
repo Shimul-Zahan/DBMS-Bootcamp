@@ -1,0 +1,9 @@
+-- Select the 'id' from the 'Weather' table where the temperature of the current day is greater than the previous day
+select w1.id
+from Weather w1
+-- Perform a self-join on the 'Weather' table, where 'w1' represents the current day's data and 'w2' represents the previous day's data
+join Weather w2
+-- The join condition ensures that we match 'w1.recordDate' with the previous day's date ('w2.recordDate' + 1 day)
+on w1.recordDate = w2.recordDate + INTERVAL '1 day'
+-- The WHERE clause filters the result to only include rows where the current day's temperature is higher than the previous day's temperature
+where w1.temperature > w2.temperature;
