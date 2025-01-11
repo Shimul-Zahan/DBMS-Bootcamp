@@ -1,0 +1,1 @@
+-- When we don't have separate table and we want to find then we use self join
