@@ -1,4 +1,7 @@
 -- Full outer join = Inner join + all remaining from left table + all remaining from right table
+-- Left join == left outer join
+-- Right join == right outer join
+-- Inner join == join
 select 
 	e.employee_name, d.department_name
 from 
