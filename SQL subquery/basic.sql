@@ -99,4 +99,52 @@ dept_id | salarty
 
 
 
+select * from public.employee
+select * from public.department
+
+/* Question: Find department who do not have any employees */
+
+select * from public.department d
+where not exists (
+	select 1 from employee e where e.department_id = d.department_id
+);
+
+-- select 1 from employee e where e.department_id = 5
+
+
+-- nested subquery
+/*
+	Question: Find stores whos sales better then the average sales across all stores
+	1. find teh total sales for all stores
+	2. find the average sales for all stores
+	3. compare 1 & 2
+*/
+
+
+select *
+from (
+	select s.store_name, sum(s.price) as total_sales
+	from store s
+	group by s.store_name
+) as sales
+join (select avg(total_sales) as sales
+		from (
+			select s.store_name, sum(s.price) as total_sales
+			from store s
+			group by s.store_name
+		) as average) avg_sales
+	on sales.total_sales > avg_sales.sales
+
+
+- SELECT
+- FROM
+- WHERE
+- HAVING
+-- these for clause we use in subquery
+  
+
+
+
+
+
 
